@@ -12,3 +12,6 @@ release: clean build
 
 install:
 	@export PIPENV_VENV_IN_PROJECT="enabled" && pipenv install --pre --dev
+
+test:
+	@pipenv run pytest tests

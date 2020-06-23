@@ -26,5 +26,7 @@ class QueryGenerator:
             if prop in raw_query:
                 simple_query = raw_query[prop]
                 operation = op_mapping[simple_query["op"]]
-                query = query.filter(operation(getattr(c_attr), simple_query["value"]))
+                query = query.filter(
+                    operation(getattr(model, prop), simple_query["value"])
+                )
         return query
