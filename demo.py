@@ -24,9 +24,9 @@ q = generate_query(
     User,
     {
         "name": {"op": "eq", "value": "ed"},
-        "addresses": {"title": {"op": "eq", "value": "title"}},
+        "addresses": {"foos": {"bars": {"bar": {"op": "eq", "value": "title"}}}},
         "timestamp": {"op": "gte", "value": "2020-05-04T00:05:23"},
     },
 )
-print(list(q)[0].addresses)
+print(list(q))
 
