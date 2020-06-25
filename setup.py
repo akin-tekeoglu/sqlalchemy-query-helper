@@ -7,14 +7,14 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="sqlalchemy-query-generator",
+    name="sqlalchemy-query-helper",
     version="0.0.1",
     author="Akın Tekeoğlu",
     author_email="akin.tekeoglu@gmail.com",
-    description="Query generator for sql alchemy",
+    description="Query helper for sql alchemy",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/akin-tekeoglu/flask-trace-util",
+    url="https://github.com/akin-tekeoglu/sqlalchemy-query-helper",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3.7",
