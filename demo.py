@@ -25,8 +25,8 @@ q = generate_query(
     {
         "name": {"op": "eq", "value": "ed"},
         "addresses": {"title": {"op": "eq", "value": "title"}},
-        "timestamp": {"op": "gte", "value": "2020-07clea-04T00:05:23"},
+        "timestamp": {"op": "gte", "value": "2020-05-04T00:05:23"},
     },
 )
-print(list(q))
+print(list(q)[0].addresses)
 

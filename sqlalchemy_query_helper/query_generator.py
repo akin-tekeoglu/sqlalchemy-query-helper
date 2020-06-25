@@ -1,4 +1,5 @@
 from sqlalchemy import inspect
+from sqlalchemy.orm import joinedload
 import datetime
 
 
@@ -32,6 +33,7 @@ def _generate_query(model, query, raw_query):
     for r_attr in inst.mapper.relationships:
         prop = r_attr.key
         if prop in raw_query:
+            query = query.options(joinedload(getattr(model, prop)))
             query = query.join(getattr(model, prop))
             query = _generate_query(r_attr.entity.class_, query, raw_query[prop])
 
