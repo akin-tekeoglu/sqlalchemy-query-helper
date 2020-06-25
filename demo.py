@@ -13,7 +13,7 @@ ed_user1 = User(
     name="ed",
     fullname="Ed Jones",
     nickname="edsnickname",
-    timestamp=datetime.datetime.utcnow() + datetime.timedelta(days=1),
+    timestamp=datetime.datetime.utcnow() - datetime.timedelta(days=1),
 )
 ad = Adress(title="title", description="description")
 ed_user1.addresses.append(ad)
@@ -25,6 +25,7 @@ q = generate_query(
     {
         "name": {"op": "eq", "value": "ed"},
         "addresses": {"title": {"op": "eq", "value": "title"}},
+        "timestamp": {"op": "gte", "value": "2020-07clea-04T00:05:23"},
     },
 )
 print(list(q))
