@@ -9,9 +9,9 @@ Base = declarative_base()
 class User(Base):
     __tablename__ = "user"
     id = Column(Integer, primary_key=True)
-    name = Column(String)
-    fullname = Column(String)
-    nickname = Column(String)
+    name = Column(String(255))
+    fullname = Column(String(255))
+    nickname = Column(String(255))
     timestamp = Column(DateTime)
     addresses = relationship("Adress")
 
@@ -19,8 +19,8 @@ class User(Base):
 class Adress(Base):
     __tablename__ = "adress"
     id = Column(Integer, primary_key=True)
-    title = Column(String)
-    description = Column(String)
+    title = Column(String(255))
+    description = Column(String(255))
     user_id = Column(Integer, ForeignKey("user.id"))
     foos = relationship("Foo")
 
@@ -28,7 +28,7 @@ class Adress(Base):
 class Foo(Base):
     __tablename__ = "foo"
     id = Column(Integer, primary_key=True)
-    foo = Column(String)
+    foo = Column(String(255))
     adress_id = Column(Integer, ForeignKey("adress.id"))
     bars = relationship("Bar")
 
@@ -36,5 +36,5 @@ class Foo(Base):
 class Bar(Base):
     __tablename__ = "bar"
     id = Column(Integer, primary_key=True)
-    bar = Column(String)
+    bar = Column(String(255))
     foo_id = Column(Integer, ForeignKey("foo.id"))

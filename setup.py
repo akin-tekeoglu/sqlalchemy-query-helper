@@ -8,7 +8,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="sqlalchemy-query-helper",
-    version="0.0.4",
+    version="0.0.5",
     author="Akın Tekeoğlu",
     author_email="akin.tekeoglu@gmail.com",
     description="Query helper for sql alchemy",

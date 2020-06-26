@@ -11,6 +11,7 @@ setuptools= "*"
 twine="*"
 pytest="*"
 SQLAlchemy="*"
+PyMySQL="*"
 
 [requires]
 python_version = "3.7"

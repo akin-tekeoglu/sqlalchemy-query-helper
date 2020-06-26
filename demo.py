@@ -16,17 +16,35 @@ ed_user1 = User(
     timestamp=datetime.datetime.utcnow() - datetime.timedelta(days=1),
 )
 ad = Adress(title="title", description="description")
+ad1 = Adress(title="title1", description="description")
 ed_user1.addresses.append(ad)
+ed_user1.addresses.append(ad1)
 session.add(ed_user1)
 session.commit()
 q = generate_query(
     session,
     User,
     {
-        "name": {"op": "eq", "value": "ed"},
-        "addresses": {"foos": {"bars": {"bar": {"op": "eq", "value": "title"}}}},
-        "timestamp": {"op": "gte", "value": "2020-05-04T00:05:23"},
+        "or": [
+            {
+                "and": [
+                    {"fullname": {"op": "eq", "value": "Ed Jones"}},
+                    {"name": {"op": "eq", "value": "ed"}},
+                ]
+            },
+            {
+                "and": [
+                    {
+                        "addresses": {
+                            "foos": {"bars": {"bar": {"op": "eq", "value": "title"}}}
+                        }
+                    },
+                    {"addresses": {"foos": {"foo": {"op": "eq", "value": "title"}}},},
+                ],
+            },
+            {"timestamp": {"op": "gte", "value": "2020-05-04T00:05:23"},},
+        ],
     },
 )
-print(list(q))
+print(list(q)[0].addresses)
 
