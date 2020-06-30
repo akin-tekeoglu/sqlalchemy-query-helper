@@ -26,12 +26,8 @@ q = generate_query(
     User,
     {
         "or": [
-            {
-                "and": [
-                    {"fullname": {"op": "eq", "value": "Ed Jones"}},
-                    {"name": {"op": "eq", "value": "ed"}},
-                ]
-            },
+            {"fullname": {"op": "eq", "value": "Ed Jones"}},
+            {"fullname": {"op": "eq", "value": "ed"}},
             {
                 "and": [
                     {
@@ -42,8 +38,8 @@ q = generate_query(
                     {"addresses": {"foos": {"foo": {"op": "eq", "value": "title"}}},},
                 ],
             },
-            {"timestamp": {"op": "gte", "value": "2020-05-04T00:05:23"},},
         ],
+        "timestamp": {"op": "gte", "value": "2020-05-04T00:05:23"},
     },
 )
 print(list(q)[0].addresses)
