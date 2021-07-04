@@ -31,7 +31,6 @@ join address on address.user_id=user.id
 where user.name='john' and address.title!='new york city'
 """
 # notice that it will load joined table if it is in the query.
-# There is no select option yet
 
 ```
 
