@@ -1,5 +1,13 @@
 # SQLAlchemy query helper
 
+## About
+
+Creates sql alchemy query from python dictionary.
+
+## Installation
+
+`pip install sqlalchemy-query-helper`
+
 ## Usage
 
 ```python
